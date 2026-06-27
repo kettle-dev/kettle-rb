@@ -21,6 +21,21 @@ I've summarized my thoughts in [this blog post](https://dev.to/galtzo/hostile-ta
 
 ## 🌻 Synopsis <a href="https://discord.gg/3qme4XHNKN"><img alt="Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-128px.svg" width="8%" align="right"/></a> <a href="https://ruby-toolbox.com"><img alt="ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5" src="https://logos.galtzo.com/assets/images/ruby-lang/avatar-128px.svg" width="8%" align="right"/></a>
 
+`kettle-rb` is the small shared Ruby library for the kettle-dev toolchain.
+
+Its first public responsibility is `Kettle::Rb::CompatMatrix`: a single source
+of truth for Ruby engine compatibility data used by `kettle-jem`,
+`kettle-dev`, and related release/template tooling. The matrix records MRI,
+JRuby, and TruffleRuby versions, workflow Ruby buckets, RubyGems/Bundler
+policy, Rails appraisal hints, and RuboCop LTS selection data.
+
+Use it when tooling needs to answer questions like:
+
+- Which Ruby workflow should represent this engine?
+- Which RuboCop LTS family matches a minimum supported Ruby?
+- Which `rubocop-rubyN_N` gem and rubocop-lts branch belong together?
+- Which Rails appraisal version is the newest stable target for a Ruby bucket?
+
 ## 💡 Info you can shake a stick at
 
 | Tokens to Remember | [![Gem name][⛳️name-img]][⛳️gem-name] [![Gem namespace][⛳️namespace-img]][⛳️gem-namespace] |
@@ -122,9 +137,58 @@ gem install kettle-rb
 
 ## ⚙️ Configuration
 
+`kettle-rb` has no runtime configuration. The compatibility matrix is packaged
+with the gem and exposed as immutable data.
+
+Tooling that needs local, unreleased kettle-dev siblings should use normal
+Bundler/Gemfile wiring through `KETTLE_RB_DEV`; do not alter `$LOAD_PATH`.
+For example, downstream kettle gems can resolve a local checkout with:
+
+```console
+KETTLE_RB_DEV=/home/pboling/src/my/kettle-dev bundle install
+```
+
+After changing matrix data, update this gem first, release it, then bump the
+consumer dependency floors in gems such as `kettle-dev` and `kettle-jem`.
+
 ## 🔧 Basic Usage
 
-TODO: Write usage instructions here
+Require the library:
+
+```ruby
+require "kettle/rb"
+```
+
+Look up an engine or Ruby entry:
+
+```ruby
+entry = Kettle::Rb::CompatMatrix.entry("truffleruby-34.0")
+
+entry.ruby          # => "truffleruby-34.0.1"
+entry.engine        # => "truffleruby"
+entry.mri           # => "3.4"
+entry.workflow_ruby # => "3.4"
+```
+
+Select generated workflow behavior:
+
+```ruby
+Kettle::Rb::CompatMatrix.engine_workflow("truffle")
+# => "truffleruby"
+
+Kettle::Rb::CompatMatrix.workflow_ruby_floor("truffleruby-23.1")
+# => "3.1"
+```
+
+Select RuboCop LTS template data:
+
+```ruby
+Kettle::Rb::CompatMatrix.rubocop_template_tokens(Gem::Version.new("3.2"))
+# => ["\"~> 24.2\", \">= 24.2.0\"", "rubocop-ruby3_2", "\"~> 3.0\", \">= 3.0.6\""]
+
+Kettle::Rb::CompatMatrix.rubocop_lts_branch_for_gem("rubocop-ruby3_2")
+# => "r3_2-even-v24"
+```
 
 ## 🦷 FLOSS Funding
 
