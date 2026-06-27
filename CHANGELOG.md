@@ -20,6 +20,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
+  and RuboCop LTS compatibility source of truth for kettle-rb tooling.
+
 ### Changed
 
 ### Deprecated
