@@ -20,9 +20,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
-  and RuboCop LTS compatibility source of truth for kettle-rb tooling.
-
 ### Changed
 
 ### Deprecated
@@ -35,4 +32,17 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ## [0.1.0] - 2026-06-27
 
+- TAG: [v0.1.0][0.1.0t]
+- COVERAGE: 89.47% -- 68/76 lines in 3 files
+- BRANCH COVERAGE: 75.00% -- 12/16 branches in 3 files
+- 43.90% documented
 - Initial release
+
+### Added
+
+- Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
+  and RuboCop LTS compatibility source of truth for kettle-rb tooling.
+
+[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/kettle-dev/kettle-rb/compare/7d715a6109f43ab78253e31ea49b280b659a060d...v0.1.0
+[0.1.0t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.0

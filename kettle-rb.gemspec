@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
   spec.description = "📏 TODO: Write a longer description or delete this line."
   spec.homepage = "https://github.com/kettle-dev/kettle-rb"
   spec.licenses = ["MIT"]
-  spec.required_ruby_version = ">= 1.8.7"
+  spec.required_ruby_version = ">= 1.8.7" # rubocop:disable Gemspec/RequiredRubyVersion
 
   # Linux distros often package gems and securely certify them independent
   #   of the official RubyGem certification process. Allowed via ENV["SKIP_GEM_SIGNING"]

@@ -23,7 +23,7 @@ RSpec.describe Kettle::Rb do
       "\"~> 3.0\", \">= 3.0.2\""
     ])
     expect(matrix.rubocop_lts_branch_for_gem("rubocop-ruby3_2")).to eq("r3_2-even-v24")
-    expect(matrix.rubocop_ruby_gem?("rubocop-ruby3_2")).to eq(true)
-    expect(matrix.rubocop_ruby_gem?("rubocop-lts")).to eq(false)
+    expect(matrix.rubocop_ruby_gem?("rubocop-ruby3_2")).to be(true)
+    expect(matrix.rubocop_ruby_gem?("rubocop-lts")).to be(false)
   end
 end
