@@ -1,0 +1,9 @@
+{
+  "kettle-rb.gemspec:4036407429": [
+    [34, 32, 10, "Gemspec/RequiredRubyVersion: `required_ruby_version` and `TargetRubyVersion` (2.0, which may be specified in .rubocop.yml) should be equal.", 3998630200]
+  ],
+  "spec/kettle/rb_spec.rb:1615733426": [
+    [9, 12, 5, "RSpec/ExpectActual: Provide the actual value you are testing to `expect(...)`.", 170962968],
+    [9, 22, 2, "RSpec/BeEq: Prefer `be` over `eq`.", 5860785]
+  ]
+}
