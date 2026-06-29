@@ -587,7 +587,7 @@ Thanks for RTFM. ☺️
 | Field | Value |
 |---|---|
 | Package | kettle-rb |
-| Description | 📏 TODO: Write a longer description or delete this line. |
+| Description | 📏 Provides the shared Ruby, engine, Rails, RuboCop, and RuboCop LTS compatibility matrix used by Kettle-managed gems. |
 | Homepage | https://github.com/kettle-dev/kettle-rb |
 | Source | https://github.com/kettle-dev/kettle-rb |
 | License | `MIT` |
