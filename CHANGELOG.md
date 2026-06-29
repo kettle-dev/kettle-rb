@@ -22,18 +22,11 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- Replaced scaffold gemspec summary and description placeholders with
-  kettle-rb-specific package metadata.
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
-
-- Package the named `MIT.md` license file in the generated gemspec file list.
-- Removed the scaffolded root RBS `VERSION` declaration so the style workflow's
-  RBS environment load no longer sees a duplicate `Kettle::Rb::VERSION`.
 
 ### Security
 
@@ -50,6 +43,19 @@ Please file a bug if you notice a violation of semantic versioning.
   repaired `rubocop-lts` branch stack and wrapper gem versions.
 - Removed the default `RUBOCOP_LTS_LOCAL=false` development environment export
   so released RuboCop-LTS gems are selected by absence of local-mode override.
+
+- Replaced scaffold gemspec summary and description placeholders with
+  kettle-rb-specific package metadata.
+
+### Added
+
+- License files to release package
+
+### Fixed
+
+- Package the named `MIT.md` license file in the generated gemspec file list.
+- Removed the scaffolded root RBS `VERSION` declaration so the style workflow's
+  RBS environment load no longer sees a duplicate `Kettle::Rb::VERSION`.
 
 ## [0.1.0] - 2026-06-27
 

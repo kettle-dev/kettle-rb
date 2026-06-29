@@ -100,8 +100,26 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 <ul>
   <li>Updated RuboCop-LTS compatibility matrix floors to the latest released<br>
 repaired <code>rubocop-lts</code> branch stack and wrapper gem versions.</li>
-  <li>Removed the default <code>RUBOCOP_LTS_LOCAL=false</code> development environment export<br>
-so released RuboCop-LTS gems are selected by absence of local-mode override.</li>
+  <li>
+    <p>Removed the default <code>RUBOCOP_LTS_LOCAL=false</code> development environment export<br>
+so released RuboCop-LTS gems are selected by absence of local-mode override.</p>
+  </li>
+  <li>Replaced scaffold gemspec summary and description placeholders with<br>
+kettle-rb-specific package metadata.</li>
+</ul>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+  <li>License files to release package</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
+<ul>
+  <li>Package the named <code>MIT.md</code> license file in the generated gemspec file list.</li>
+  <li>Removed the scaffolded root RBS <code>VERSION</code> declaration so the style workflow’s<br>
+RBS environment load no longer sees a duplicate <code>Kettle::Rb::VERSION</code>.</li>
 </ul>
 
 <h2 id="010---2026-06-27">
@@ -116,7 +134,7 @@ so released RuboCop-LTS gems are selected by absence of local-mode override.</li
   <li>Initial release</li>
 </ul>
 
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 
 <ul>
   <li>Add <code>Kettle::Rb::CompatMatrix</code> as the shared Ruby, engine, Rails, RuboCop,<br>
@@ -126,7 +144,7 @@ and RuboCop LTS compatibility source of truth for kettle-rb tooling.</li>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Jun 29 05:05:44 2026 by
+  Generated on Mon Jun 29 08:20:31 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>
