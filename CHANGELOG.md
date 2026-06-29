@@ -22,6 +22,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- Replaced scaffold gemspec summary and description placeholders with
+  kettle-rb-specific package metadata.
+
 ### Deprecated
 
 ### Removed

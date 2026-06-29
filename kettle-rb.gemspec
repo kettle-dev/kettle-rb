@@ -27,8 +27,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter H. Boling"]
   spec.email = ["floss@galtzo.com"]
 
-  spec.summary = "📏 TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "📏 TODO: Write a longer description or delete this line."
+  spec.summary = "📏 Shared Ruby compatibility matrix data for Kettle tooling."
+  spec.description = "📏 Provides the shared Ruby, engine, Rails, RuboCop, and RuboCop LTS compatibility matrix used by Kettle-managed gems."
   spec.homepage = "https://github.com/kettle-dev/kettle-rb"
   spec.licenses = ["MIT"]
   spec.required_ruby_version = ">= 1.8.7" # rubocop:disable Gemspec/RequiredRubyVersion
