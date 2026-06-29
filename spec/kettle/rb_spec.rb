@@ -18,9 +18,9 @@ RSpec.describe Kettle::Rb do
     matrix = Kettle::Rb::CompatMatrix
 
     expect(matrix.rubocop_template_tokens(Gem::Version.new("2.4"))).to eq([
-      "\"~> 12.3\", \">= 12.3.0\"",
+      "\"~> 12.3\", \">= 12.3.1\"",
       "rubocop-ruby2_4",
-      "\"~> 3.0\", \">= 3.0.2\""
+      "\"~> 3.0\", \">= 3.0.5\""
     ])
     expect(matrix.rubocop_lts_branch_for_gem("rubocop-ruby3_2")).to eq("r3_2-even-v24")
     expect(matrix.rubocop_ruby_gem?("rubocop-ruby3_2")).to be(true)

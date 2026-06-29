@@ -22,6 +22,11 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- Updated RuboCop-LTS compatibility matrix floors to the latest released
+  repaired `rubocop-lts` branch stack and wrapper gem versions.
+- Removed the default `RUBOCOP_LTS_LOCAL=false` development environment export
+  so released RuboCop-LTS gems are selected by absence of local-mode override.
+
 ### Deprecated
 
 ### Removed
