@@ -31,6 +31,7 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Package the named `MIT.md` license file in the generated gemspec file list.
 - Removed the scaffolded root RBS `VERSION` declaration so the style workflow's
   RBS environment load no longer sees a duplicate `Kettle::Rb::VERSION`.
 
