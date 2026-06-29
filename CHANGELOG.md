@@ -22,11 +22,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- Updated RuboCop-LTS compatibility matrix floors to the latest released
-  repaired `rubocop-lts` branch stack and wrapper gem versions.
-- Removed the default `RUBOCOP_LTS_LOCAL=false` development environment export
-  so released RuboCop-LTS gems are selected by absence of local-mode override.
-
 ### Deprecated
 
 ### Removed
@@ -34,6 +29,20 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 ### Security
+
+## [0.1.1] - 2026-06-29
+
+- TAG: [v0.1.1][0.1.1t]
+- COVERAGE: 89.47% -- 68/76 lines in 3 files
+- BRANCH COVERAGE: 75.00% -- 12/16 branches in 3 files
+- 43.90% documented
+
+### Changed
+
+- Updated RuboCop-LTS compatibility matrix floors to the latest released
+  repaired `rubocop-lts` branch stack and wrapper gem versions.
+- Removed the default `RUBOCOP_LTS_LOCAL=false` development environment export
+  so released RuboCop-LTS gems are selected by absence of local-mode override.
 
 ## [0.1.0] - 2026-06-27
 
@@ -48,6 +57,8 @@ Please file a bug if you notice a violation of semantic versioning.
 - Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
   and RuboCop LTS compatibility source of truth for kettle-rb tooling.
 
-[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.0...v0.1.1
+[0.1.1t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.1
 [0.1.0]: https://github.com/kettle-dev/kettle-rb/compare/7d715a6109f43ab78253e31ea49b280b659a060d...v0.1.0
 [0.1.0t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.0
