@@ -28,9 +28,18 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
-- Package configured license files in gem release file lists.
-
 ### Security
+
+## [0.1.2] - 2026-07-15
+
+- TAG: [v0.1.2][0.1.2t]
+- COVERAGE: 89.47% -- 68/76 lines in 3 files
+- BRANCH COVERAGE: 75.00% -- 12/16 branches in 3 files
+- 43.90% documented
+
+### Fixed
+
+- Package configured license files in gem release file lists.
 
 ## [0.1.1] - 2026-06-29
 
@@ -72,7 +81,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
   and RuboCop LTS compatibility source of truth for kettle-rb tooling.
 
-[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.1...v0.1.2
+[0.1.2t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.2
 [0.1.1]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.0...v0.1.1
 [0.1.1t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.1
 [0.1.0]: https://github.com/kettle-dev/kettle-rb/compare/7d715a6109f43ab78253e31ea49b280b659a060d...v0.1.0
