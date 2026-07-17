@@ -141,11 +141,11 @@ gem install kettle-rb
 with the gem and exposed as immutable data.
 
 Tooling that needs local, unreleased kettle-dev siblings should use normal
-Bundler/Gemfile wiring through `KETTLE_RB_DEV`; do not alter `$LOAD_PATH`.
+Bundler/Gemfile wiring through `KETTLE_DEV_DEV`; do not alter `$LOAD_PATH`.
 For example, downstream kettle gems can resolve a local checkout with:
 
 ```console
-KETTLE_RB_DEV=/home/pboling/src/my/kettle-dev bundle install
+KETTLE_DEV_DEV=/home/pboling/src/my/kettle-dev bundle install
 ```
 
 After changing matrix data, update this gem first, release it, then bump the
