@@ -56,7 +56,7 @@ Please file a bug if you notice a violation of semantic versioning.
   so released RuboCop-LTS gems are selected by absence of local-mode override.
 
 - Replaced scaffold gemspec summary and description placeholders with
-  kettle-rb-specific package metadata.
+  kettle-dev-specific package metadata.
 
 ### Added
 
@@ -79,12 +79,12 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Added
 
 - Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
-  and RuboCop LTS compatibility source of truth for kettle-rb tooling.
+  and RuboCop LTS compatibility source of truth for kettle-dev tooling.
 
-[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.2...HEAD
-[0.1.2]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.1...v0.1.2
-[0.1.2t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.2
-[0.1.1]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.0...v0.1.1
-[0.1.1t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.1
-[0.1.0]: https://github.com/kettle-dev/kettle-rb/compare/7d715a6109f43ab78253e31ea49b280b659a060d...v0.1.0
-[0.1.0t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.0
+[Unreleased]: https://github.com/kettle-dev/kettle-dev/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/kettle-dev/kettle-dev/compare/v0.1.1...v0.1.2
+[0.1.2t]: https://github.com/kettle-dev/kettle-dev/releases/tag/v0.1.2
+[0.1.1]: https://github.com/kettle-dev/kettle-dev/compare/v0.1.0...v0.1.1
+[0.1.1t]: https://github.com/kettle-dev/kettle-dev/releases/tag/v0.1.1
+[0.1.0]: https://github.com/kettle-dev/kettle-dev/compare/7d715a6109f43ab78253e31ea49b280b659a060d...v0.1.0
+[0.1.0t]: https://github.com/kettle-dev/kettle-dev/releases/tag/v0.1.0

@@ -57,8 +57,8 @@ kettle_dev_local_gems = [
   "kettle-dev", "kettle-test", "kettle-soup-cover", "kettle-drift"
 ]
 declared_gems = instance_variable_get(:@dependencies).to_a.map(&:name)
-smorg_rb_local_gems_to_eval = smorg_rb_local_gems - ["kettle-rb"] - declared_gems
-kettle_dev_local_gems_to_eval = kettle_dev_local_gems - ["kettle-rb"] - declared_gems
+smorg_rb_local_gems_to_eval = smorg_rb_local_gems - ["kettle-dev"] - declared_gems
+kettle_dev_local_gems_to_eval = kettle_dev_local_gems - ["kettle-dev"] - declared_gems
 
 tslp_dev = ENV.fetch("TSLP_DEV", nil)
 

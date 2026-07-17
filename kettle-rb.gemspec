@@ -22,14 +22,14 @@ gem_version =
   end
 
 Gem::Specification.new do |spec|
-  spec.name = "kettle-rb"
+  spec.name = "kettle-dev"
   spec.version = gem_version
   spec.authors = ["Peter H. Boling"]
   spec.email = ["floss@galtzo.com"]
 
   spec.summary = "📏 Shared Ruby compatibility matrix data for Kettle tooling."
   spec.description = "📏 Provides the shared Ruby, engine, Rails, RuboCop, and RuboCop LTS compatibility matrix used by Kettle-managed gems."
-  spec.homepage = "https://github.com/kettle-dev/kettle-rb"
+  spec.homepage = "https://github.com/kettle-dev/kettle-dev"
   spec.licenses = ["MIT"]
   spec.required_ruby_version = ">= 1.8.7" # rubocop:disable Gemspec/RequiredRubyVersion
 
@@ -50,7 +50,7 @@ Gem::Specification.new do |spec|
     end
   end
 
-  spec.metadata["homepage_uri"] = "https://kettle-rb.galtzo.com"
+  spec.metadata["homepage_uri"] = "https://kettle-dev.galtzo.com"
   spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
   spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/issues"
