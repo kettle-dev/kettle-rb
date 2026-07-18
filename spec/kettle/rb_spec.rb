@@ -8,8 +8,11 @@ RSpec.describe Kettle::Rb do
   it "exposes the Ruby compatibility matrix" do
     matrix = Kettle::Rb::CompatMatrix
 
-    expect(matrix.entries).to include("ruby-1.8", "ruby-3.4", "jruby-10.0")
+    expect(matrix.entries).to include("ruby-1.8", "ruby-3.4", "jruby-10.0", "jruby-10.1")
     expect(matrix.entry("jruby-10.0").ruby).to eq("jruby-10.0.0.0")
+    expect(matrix.entry("jruby-10.1").ruby).to eq("jruby-10.1.0.0")
+    expect(matrix.entry("jruby-10.1").mri).to eq("3.4")
+    expect(matrix.workflow_ruby_floor("jruby-10.1")).to eq("3.4")
     expect(matrix.entry("truffleruby-34.0").ruby).to eq("truffleruby-34.0.1")
     expect(matrix.workflow_ruby_floor("truffleruby-23.1")).to eq("3.1")
     expect(matrix.engine_workflow("truffle")).to eq("truffleruby")

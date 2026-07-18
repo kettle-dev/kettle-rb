@@ -55,6 +55,7 @@ module Kettle
         ["truffleruby-33.0", "truffleruby-33.0.1", "truffleruby", "3.3", "3.3", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, TRUFFLERUBY_NOTES],
         ["ruby-3.4", "3.4.7", "ruby", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
         ["jruby-10.0", "jruby-10.0.0.0", "jruby", "3.4", "3.4", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
+        ["jruby-10.1", "jruby-10.1.0.0", "jruby", "3.4", "3.4", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil],
         ["truffleruby-34.0", "truffleruby-34.0.1", "truffleruby", "3.4", "3.4", nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, TRUFFLERUBY_NOTES]
       ].freeze
 

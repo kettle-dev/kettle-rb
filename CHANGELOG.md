@@ -20,6 +20,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Added JRuby 10.1 to the compatibility matrix.
+
 ### Changed
 
 ### Deprecated
