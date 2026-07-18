@@ -22,20 +22,31 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- kettle-jem-template-20260716-001 - Shim gemspec manifests now include
-  `LICENSE.md` instead of nonexistent `LICENSE.txt`.
-- kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer
-  repository-only files by default to reduce downstream distro packaging churn.
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
-- Recognize the JRuby 10.0 workflow as a JRuby engine workflow in the compatibility matrix.
-
 ### Security
+
+## [0.1.3] - 2026-07-17
+
+- TAG: [v0.1.3][0.1.3t]
+- COVERAGE: 100.00% -- 76/76 lines in 3 files
+- BRANCH COVERAGE: 100.00% -- 16/16 branches in 3 files
+- 43.90% documented
+
+### Changed
+
+- kettle-jem-template-20260716-001 - Shim gemspec manifests now include
+  `LICENSE.md` instead of nonexistent `LICENSE.txt`.
+- kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer
+  repository-only files by default to reduce downstream distro packaging churn.
+
+### Fixed
+
+- Recognize the JRuby 10.0 workflow as a JRuby engine workflow in the compatibility matrix.
 
 ## [0.1.2] - 2026-07-15
 
@@ -88,7 +99,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
   and RuboCop LTS compatibility source of truth for kettle-dev tooling.
 
-[Unreleased]: https://github.com/kettle-dev/kettle-dev/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.2...v0.1.3
+[0.1.3t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.3
 [0.1.2]: https://github.com/kettle-dev/kettle-dev/compare/v0.1.1...v0.1.2
 [0.1.2t]: https://github.com/kettle-dev/kettle-dev/releases/tag/v0.1.2
 [0.1.1]: https://github.com/kettle-dev/kettle-dev/compare/v0.1.0...v0.1.1

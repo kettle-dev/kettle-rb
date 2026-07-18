@@ -83,7 +83,7 @@
 <h2 id="-synopsis--">🌻 Synopsis <a href="https://discord.gg/3qme4XHNKN"><img alt="Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-128px.svg" width="8%" align="right"></a> <a href="https://ruby-toolbox.com"><img alt="ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5" src="https://logos.galtzo.com/assets/images/ruby-lang/avatar-128px.svg" width="8%" align="right"></a>
 </h2>
 
-<p><code>kettle-rb</code> is the small shared Ruby library for the kettle-dev toolchain.</p>
+<p><code>kettle-dev</code> is the small shared Ruby library for the kettle-dev toolchain.</p>
 
 <p>Its first public responsibility is <code>Kettle::Rb::CompatMatrix</code>: a single source<br>
 of truth for Ruby engine compatibility data used by <code>kettle-jem</code>,<br>
@@ -378,14 +378,14 @@ not practical for the current toolchain.</p>
 
 <h2 id="️-configuration">⚙️ Configuration</h2>
 
-<p><code>kettle-rb</code> has no runtime configuration. The compatibility matrix is packaged<br>
+<p><code>kettle-dev</code> has no runtime configuration. The compatibility matrix is packaged<br>
 with the gem and exposed as immutable data.</p>
 
 <p>Tooling that needs local, unreleased kettle-dev siblings should use normal<br>
-Bundler/Gemfile wiring through <code>KETTLE_RB_DEV</code>; do not alter <code>$LOAD_PATH</code>.<br>
+Bundler/Gemfile wiring through <code>KETTLE_DEV_DEV</code>; do not alter <code>$LOAD_PATH</code>.<br>
 For example, downstream kettle gems can resolve a local checkout with:</p>
 
-<pre class="code language-console"><code class="language-console">KETTLE_RB_DEV=/home/pboling/src/my/kettle-dev bundle install
+<pre class="code language-console"><code class="language-console">KETTLE_DEV_DEV=/home/pboling/src/my/kettle-dev bundle install
 </code></pre>
 
 <p>After changing matrix data, update this gem first, release it, then bump the<br>
@@ -628,7 +628,7 @@ Please consider sponsoring me or the project.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Jul 15 11:27:05 2026 by
+  Generated on Fri Jul 17 20:04:07 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.45 (ruby-4.0.6).
 </div>
