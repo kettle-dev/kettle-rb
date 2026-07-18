@@ -28,6 +28,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Recognize the JRuby 10.0 workflow as a JRuby engine workflow in the compatibility matrix.
+
 ### Security
 
 ## [0.1.2] - 2026-07-15
