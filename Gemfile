@@ -15,7 +15,7 @@ git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
 # Gemfile is for local development ONLY; Gemfile is NOT loaded in CI #
 ####################################################### IMPORTANT ####
 
-# Include dependencies from kettle-dev.gemspec
+# Include dependencies from kettle-rb.gemspec
 gemspec
 
 # Local workspace dependency wiring for *_local.gemfile overrides

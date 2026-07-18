@@ -22,14 +22,14 @@ gem_version =
   end
 
 Gem::Specification.new do |spec|
-  spec.name = "kettle-dev"
+  spec.name = "kettle-rb"
   spec.version = gem_version
   spec.authors = ["Peter H. Boling"]
   spec.email = ["floss@galtzo.com"]
 
   spec.summary = "📏 Shared Ruby compatibility matrix data for Kettle tooling."
   spec.description = "📏 Provides the shared Ruby, engine, Rails, RuboCop, and RuboCop LTS compatibility matrix used by Kettle-managed gems."
-  spec.homepage = "https://github.com/kettle-dev/kettle-dev"
+  spec.homepage = "https://github.com/kettle-dev/kettle-rb"
   spec.licenses = ["MIT"]
   spec.required_ruby_version = ">= 1.8.7" # rubocop:disable Gemspec/RequiredRubyVersion
 
@@ -50,7 +50,7 @@ Gem::Specification.new do |spec|
     end
   end
 
-  spec.metadata["homepage_uri"] = "https://kettle-dev.galtzo.com"
+  spec.metadata["homepage_uri"] = "https://kettle-rb.galtzo.com"
   spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
   spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/issues"
@@ -66,34 +66,21 @@ Gem::Specification.new do |spec|
       File.file?(path) && ![".", ".."].include?(File.basename(path))
     end
   end
+  package_metadata_files = [
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "README.md",
+    "sig/kettle/rb.rbs"
+  ].select { |path| File.exist?(path) }
 
   # Specify which files are part of the released package.
   spec.files = [
-    # Root license files
-    "LICENSE.md",
-    "MIT.md",
+    # Root package metadata
+    *package_metadata_files,
     # Code / tasks / data (NOTE: exe/ is specified via spec.bindir and spec.executables below)
     *enumerate_package_files.call("lib"),
     # Executables and executable support scripts
-    *enumerate_package_files.call("exe"),
-    # Public certs for gem signing
-    *enumerate_package_files.call("certs"),
-    # Signatures
-    *enumerate_package_files.call("sig")
-  ]
-
-  # Automatically included with gem package, no need to list again in files.
-  spec.extra_rdoc_files = Dir[
-    # Files (alphabetical)
-    "CHANGELOG.md",
-    "CITATION.cff",
-    "CODE_OF_CONDUCT.md",
-    "CONTRIBUTING.md",
-    "FUNDING.md",
-    "LICENSE.md",
-    "README.md",
-    "RUBOCOP.md",
-    "SECURITY.md"
+    *enumerate_package_files.call("exe")
   ]
   spec.rdoc_options += [
     "--title",
@@ -127,7 +114,7 @@ Gem::Specification.new do |spec|
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
   # Dev, Test, & Release Tasks
-  spec.add_development_dependency("kettle-dev", "~> 2.3", ">= 2.3.4")     # ruby >= 2.4.0
+  spec.add_development_dependency("kettle-dev", "~> 2.3", ">= 2.3.5")     # ruby >= 2.4.0
 
   # Security
   spec.add_development_dependency("bundler-audit", "~> 0.9.3")                      # ruby >= 2.0.0
@@ -140,8 +127,8 @@ Gem::Specification.new do |spec|
 
   # Testing
   spec.add_development_dependency("appraisal2", "~> 3.1", ">= 3.1.4")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
-  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.10")            # ruby >= 2.4.0
-  spec.add_development_dependency("turbo_tests2", "~> 3.1", ">= 3.1.9")            # ruby >= 2.4.0, default kettle-test runner
+  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.11")            # ruby >= 2.4.0
+  spec.add_development_dependency("turbo_tests2", "~> 3.1", ">= 3.1.14")           # ruby >= 2.4.0, default kettle-test runner
 
   # Releasing
   spec.add_development_dependency("ruby-progressbar", "~> 1.13")                    # ruby >= 0

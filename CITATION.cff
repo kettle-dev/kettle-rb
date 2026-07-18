@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "kettle-dev"
+title: "kettle-rb"
 message: >-
   If you use this work and you want to cite it,
   then you can use the metadata from this file.
@@ -12,9 +12,9 @@ authors:
     orcid: 'https://orcid.org/0009-0008-8519-441X'
 identifiers:
   - type: url
-    value: 'https://github.com/kettle-dev/kettle-dev'
-    description: "kettle-dev"
-repository-code: 'https://github.com/kettle-dev/kettle-dev'
+    value: 'https://github.com/kettle-dev/kettle-rb'
+    description: "kettle-rb"
+repository-code: 'https://github.com/kettle-dev/kettle-rb'
 abstract: >-
-  kettle-dev
+  kettle-rb
 license: See license file
