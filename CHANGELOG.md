@@ -20,6 +20,28 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+- kettle-jem-template-20260726-002 - Generated version files now document their
+  version namespace and constants, reducing warning-only YARD lint output.
+
+### Security
+
+## [0.1.6] - 2026-07-26
+
+- TAG: [v0.1.6][0.1.6t]
+- COVERAGE: 100.00% -- 76/76 lines in 3 files
+- BRANCH COVERAGE: 100.00% -- 16/16 branches in 3 files
+- 43.90% documented
+
+### Added
+
 - kettle-jem-template-20260726-001 - Projects now include YARD lint
   configuration and documentation dependencies so documentation issues fail
   before generated docs are refreshed.
@@ -31,14 +53,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260725-002 - Version specs now use `anonymous_loader` to
   cover `version.rb` without redefining constants, or are removed when version
   specs are not managed for the project.
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [0.1.5] - 2026-07-21
 
@@ -140,7 +154,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
   and RuboCop LTS compatibility source of truth for kettle-dev tooling.
 
-[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.5...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.6...HEAD
+[0.1.6]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.5...v0.1.6
+[0.1.6t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.6
 [0.1.5]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.4...v0.1.5
 [0.1.5t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.5
 [0.1.4]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.3...v0.1.4
