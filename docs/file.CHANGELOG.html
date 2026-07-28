@@ -92,7 +92,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 </li>
   <li>COVERAGE: 100.00% – 76/76 lines in 3 files</li>
   <li>BRANCH COVERAGE: 100.00% – 16/16 branches in 3 files</li>
-  <li>43.90% documented</li>
+  <li>48.78% documented</li>
 </ul>
 
 <h3 id="added-1">Added</h3>
@@ -111,6 +111,13 @@ with <code>feature/release</code> now run JRuby and TruffleRuby workflows.</li>
   <li>kettle-jem-template-20260725-002 - Version specs now use <code>anonymous_loader</code> to<br>
 cover <code>version.rb</code> without redefining constants, or are removed when version<br>
 specs are not managed for the project.</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
+<ul>
+  <li>kettle-jem-template-20260726-002 - Generated version files now document their<br>
+version namespace and constants, reducing warning-only YARD lint output.</li>
 </ul>
 
 <h2 id="015---2026-07-21">
@@ -176,7 +183,7 @@ now include a RubyForum help badge.</li>
 repository-only files by default to reduce downstream distro packaging churn.</li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 
 <ul>
   <li>Recognize the JRuby 10.0 workflow as a JRuby engine workflow in the compatibility matrix.</li>
@@ -193,7 +200,7 @@ repository-only files by default to reduce downstream distro packaging churn.</l
   <li>43.90% documented</li>
 </ul>
 
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 
 <ul>
   <li>Package configured license files in gem release file lists.</li>
@@ -229,7 +236,7 @@ kettle-dev-specific package metadata.</li>
   <li>License files to release package</li>
 </ul>
 
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 
 <ul>
   <li>Package the named <code>MIT.md</code> license file in the generated gemspec file list.</li>
