@@ -64,14 +64,20 @@ Gem::Specification.new do |spec|
 
   gemspec_root = __dir__
   relative_package_path = lambda do |path|
-    path.delete_prefix("#{gemspec_root}/")
+    prefix = "#{gemspec_root}/"
+    (path[0, prefix.length] == prefix) ? path[prefix.length..-1] : path
   end
-  enumerate_package_files = lambda do |root|
-    Dir.glob(File.join(gemspec_root, root, "**", "*"), File::FNM_DOTMATCH).filter_map do |path|
+  enumerate_package_glob = lambda do |glob|
+    files = []
+    Dir.glob(glob, File::FNM_DOTMATCH).each do |path|
       next unless File.file?(path) && ![".", ".."].include?(File.basename(path))
 
-      relative_package_path.call(path)
+      files << relative_package_path.call(path)
     end
+    files
+  end
+  enumerate_package_files = lambda do |root|
+    enumerate_package_glob.call(File.join(gemspec_root, root, "**", "*"))
   end
   package_metadata_files = [
     "CHANGELOG.md",
