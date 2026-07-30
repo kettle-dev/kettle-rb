@@ -20,15 +20,28 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- kettle-jem-template-20260729-005 - Gemspec metadata now publishes this
-  project's RubyForum tag as `mailing_list_uri`, and support docs link to the
-  tagged RubyForum community alongside Discord.
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.7] - 2026-07-30
+
+- TAG: [v0.1.7][0.1.7t]
+- COVERAGE: 100.00% -- 76/76 lines in 3 files
+- BRANCH COVERAGE: 100.00% -- 16/16 branches in 3 files
+- 48.78% documented
+
+### Added
+
+- kettle-jem-template-20260729-005 - Gemspec metadata now publishes this
+  project's RubyForum tag as `mailing_list_uri`, and support docs link to the
+  tagged RubyForum community alongside Discord.
 
 ### Fixed
 
@@ -54,8 +67,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs
   relative to the gemspec directory, so packaged template assets are included
   even when the gemspec is loaded from another working directory.
-
-### Security
 
 ## [0.1.6] - 2026-07-28
 
@@ -200,7 +211,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
   and RuboCop LTS compatibility source of truth for kettle-dev tooling.
 
-[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.6...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.7...HEAD
+[0.1.7]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.6...v0.1.7
+[0.1.7t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.7
 [0.1.6]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.5...v0.1.6
 [0.1.6t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.6
 [0.1.5]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.4...v0.1.5
