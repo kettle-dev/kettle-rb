@@ -22,12 +22,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- kettle-jem-template-20260801-001 - Generated README gem dashboard links now
-  use ClickGems instead of BestGems.
-
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.8] - 2026-08-01
+
+- TAG: [v0.1.8][0.1.8t]
+- COVERAGE: 100.00% -- 76/76 lines in 3 files
+- BRANCH COVERAGE: 100.00% -- 16/16 branches in 3 files
+- 48.78% documented
+
+### Changed
+
+- kettle-jem-template-20260801-001 - Generated README gem dashboard links now
+  use ClickGems instead of BestGems.
 
 ### Fixed
 
@@ -40,8 +53,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260801-004 - Generated organization README logos now
   use GitHub's stable organization avatar endpoint instead of assuming a
   matching Galtzo-hosted asset exists.
-
-### Security
 
 ## [0.1.7] - 2026-07-30
 
@@ -224,7 +235,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
   and RuboCop LTS compatibility source of truth for kettle-dev tooling.
 
-[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.7...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.8...HEAD
+[0.1.8]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.7...v0.1.8
+[0.1.8t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.8
 [0.1.7]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.6...v0.1.7
 [0.1.7t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.7
 [0.1.6]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.5...v0.1.6
