@@ -28,10 +28,19 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [0.1.9] - 2026-08-03
+
+- TAG: [v0.1.9][0.1.9t]
+- COVERAGE: 100.00% -- 76/76 lines in 3 files
+- BRANCH COVERAGE: 100.00% -- 16/16 branches in 3 files
+- 48.78% documented
+
+### Fixed
+
 - kettle-jem-template-20260802-001 - Devcontainer JSON files now merge as JSONC,
   preserving comments and trailing commas during template updates.
-
-### Security
 
 ## [0.1.8] - 2026-08-01
 
@@ -224,7 +233,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
   and RuboCop LTS compatibility source of truth for kettle-dev tooling.
 
-[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.8...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.9...HEAD
+[0.1.9]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.8...v0.1.9
+[0.1.9t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.9
 [0.1.8]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.7...v0.1.8
 [0.1.8t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.8
 [0.1.7]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.6...v0.1.7
