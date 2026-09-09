@@ -22,8 +22,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- Refresh RuboCop-LTS compatibility matrix floors for the released branch stack.
-
 ### Deprecated
 
 ### Removed
@@ -31,6 +29,17 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 ### Security
+
+## [0.1.12] - 2026-09-09
+
+- TAG: [v0.1.12][0.1.12t]
+- COVERAGE: 100.00% -- 76/76 lines in 3 files
+- BRANCH COVERAGE: 100.00% -- 16/16 branches in 3 files
+- 48.78% documented
+
+### Changed
+
+- Refresh RuboCop-LTS compatibility matrix floors for the released branch stack.
 
 ## [0.1.11] - 2026-08-28
 
@@ -273,7 +282,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
   and RuboCop LTS compatibility source of truth for kettle-dev tooling.
 
-[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.11...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.12...HEAD
+[0.1.12]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.11...v0.1.12
+[0.1.12t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.12
 [0.1.11]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.10...v0.1.11
 [0.1.11t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.11
 [0.1.10]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.9...v0.1.10
