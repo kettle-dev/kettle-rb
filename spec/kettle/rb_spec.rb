@@ -22,9 +22,9 @@ RSpec.describe Kettle::Rb do
     matrix = Kettle::Rb::CompatMatrix
 
     expect(matrix.rubocop_template_tokens(Gem::Version.new("2.4"))).to eq([
-      "\"~> 12.3\", \">= 12.3.1\"",
+      "\"~> 12.3\", \">= 12.3.3\"",
       "rubocop-ruby2_4",
-      "\"~> 3.0\", \">= 3.0.5\""
+      "\"~> 3.0\", \">= 3.0.7\""
     ])
     expect(matrix.rubocop_lts_branch_for_gem("rubocop-ruby3_2")).to eq("r3_2-even-v24")
     expect(matrix.rubocop_ruby_gem?("rubocop-ruby3_2")).to be(true)
@@ -39,9 +39,9 @@ RSpec.describe Kettle::Rb do
     matrix = Kettle::Rb::CompatMatrix
 
     oldest_tokens = [
-      "\"~> 0.3\", \">= 0.3.1\"",
+      "\"~> 0.3\", \">= 0.3.3\"",
       "rubocop-ruby1_8",
-      "\"~> 2.0\", \">= 2.0.5\""
+      "\"~> 2.0\", \">= 2.0.7\""
     ]
 
     expect(matrix.rubocop_template_tokens(nil)).to eq(oldest_tokens)
@@ -53,9 +53,36 @@ RSpec.describe Kettle::Rb do
     matrix = Kettle::Rb::CompatMatrix
 
     expect(matrix.rubocop_template_tokens(Gem::Version.new("3.2"))).to eq([
-      "\"~> 24.2\", \">= 24.2.1\"",
+      "\"~> 24.2\", \">= 24.2.3\"",
       "rubocop-ruby3_2",
-      "\"~> 3.0\", \">= 3.0.6\""
+      "\"~> 3.0\", \">= 3.0.8\""
     ])
+  end
+
+  it "uses the released RuboCop LTS floors for every supported Ruby branch" do
+    matrix = Kettle::Rb::CompatMatrix
+    expected_floors = {
+      "1.8" => ["0.3.3", "rubocop-ruby1_8", "2.0.7"],
+      "1.9" => ["2.3.3", "rubocop-ruby1_9", "3.0.7"],
+      "2.0" => ["4.3.4", "rubocop-ruby2_0", "3.0.7"],
+      "2.1" => ["6.3.3", "rubocop-ruby2_1", "3.0.7"],
+      "2.2" => ["8.3.3", "rubocop-ruby2_2", "3.0.7"],
+      "2.3" => ["10.3.3", "rubocop-ruby2_3", "3.0.7"],
+      "2.4" => ["12.3.3", "rubocop-ruby2_4", "3.0.7"],
+      "2.5" => ["14.3.3", "rubocop-ruby2_5", "3.0.7"],
+      "2.6" => ["16.3.3", "rubocop-ruby2_6", "3.0.7"],
+      "2.7" => ["18.4.3", "rubocop-ruby2_7", "3.0.7"],
+      "3.0" => ["20.4.3", "rubocop-ruby3_0", "3.0.7"],
+      "3.1" => ["22.3.3", "rubocop-ruby3_1", "3.0.7"],
+      "3.2" => ["24.2.3", "rubocop-ruby3_2", "3.0.8"]
+    }
+
+    expected_floors.each do |minimum_ruby, (rubocop_lts, rubocop_ruby, rubocop_ruby_floor)|
+      expect(matrix.rubocop_template_tokens(Gem::Version.new(minimum_ruby))).to eq([
+        "\"~> #{rubocop_lts.split(".").first(2).join(".")}\", \">= #{rubocop_lts}\"",
+        rubocop_ruby,
+        "\"~> #{rubocop_ruby_floor.split(".").first(2).join(".")}\", \">= #{rubocop_ruby_floor}\""
+      ])
+    end
   end
 end

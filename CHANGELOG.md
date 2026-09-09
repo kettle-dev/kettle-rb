@@ -22,6 +22,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- Refresh RuboCop-LTS compatibility matrix floors for the released branch stack.
+
 ### Deprecated
 
 ### Removed
