@@ -20,16 +20,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- `Kettle::Rb::GemFloors`: security floors for tracked gems (activemodel,
-  activerecord, activesupport, sqlite3), one entry per minor series. Each floor
-  is the newest patch that keeps the series' original minimum Ruby, never below
-  an advisory's patched version; advisories left unfixed in a series are
-  recorded as unpatched.
-- `rake kettle:rb:gem_floors:generate` regenerates the floor data from the
-  rubygems.org versions API and ruby-advisory-db (via bundler-audit).
-- `Kettle::Rb::GemDependencies`: curated runtime requirements between tracked
-  gems, starting with the sqlite3 requirement ActiveRecord declares per series.
-
 ### Changed
 
 ### Deprecated
@@ -39,6 +29,25 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 ### Security
+
+## [0.1.14] - 2026-09-14
+
+- TAG: [v0.1.14][0.1.14t]
+- COVERAGE: 100.00% -- 233/233 lines in 7 files
+- BRANCH COVERAGE: 97.37% -- 37/38 branches in 7 files
+- 60.98% documented
+
+### Added
+
+- `Kettle::Rb::GemFloors`: security floors for tracked gems (activemodel,
+  activerecord, activesupport, sqlite3), one entry per minor series. Each floor
+  is the newest patch that keeps the series' original minimum Ruby, never below
+  an advisory's patched version; advisories left unfixed in a series are
+  recorded as unpatched.
+- `rake kettle:rb:gem_floors:generate` regenerates the floor data from the
+  rubygems.org versions API and ruby-advisory-db (via bundler-audit).
+- `Kettle::Rb::GemDependencies`: curated runtime requirements between tracked
+  gems, starting with the sqlite3 requirement ActiveRecord declares per series.
 
 ## [0.1.13] - 2026-09-14
 
@@ -309,7 +318,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
   and RuboCop LTS compatibility source of truth for kettle-dev tooling.
 
-[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.13...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.14...HEAD
+[0.1.14]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.13...v0.1.14
+[0.1.14t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.14
 [0.1.13]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.12...v0.1.13
 [0.1.13t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.13
 [0.1.12]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.11...v0.1.12
