@@ -66,6 +66,57 @@
     [163, 50, 6, "Lint/LtsRuby/UnavailableMethod: Pathname#empty? is unavailable before Ruby 2.4.", 1165546895],
     [165, 34, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426]
   ],
+  "lib/kettle/rb/gem_dependencies.rb:2736424416": [
+    [35, 18, 50, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 1273819484],
+    [47, 39, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [47, 64, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [59, 58, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [59, 97, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426]
+  ],
+  "lib/kettle/rb/gem_floors.rb:2758233129": [
+    [35, 18, 32, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 3611480837],
+    [44, 42, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [52, 39, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [59, 58, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [66, 26, 5, "Lint/LtsRuby/UnavailableMethod: Time#floor is unavailable before Ruby 2.7.", 171329149],
+    [78, 48, 5, "Lint/LtsRuby/UnavailableMethod: Time#floor is unavailable before Ruby 2.7.", 171329149],
+    [90, 47, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [91, 34, 4, "Lint/LtsRuby/UnavailableMethod: StringScanner#size is unavailable before Ruby 2.5.", 2088346912]
+  ],
+  "lib/kettle/rb/gem_floors/generator.rb:3249318544": [
+    [59, 20, 6, "Lint/LtsRuby/UnavailableMethod: String#concat is unavailable before Ruby 2.4.", 1544271377],
+    [80, 17, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
+    [80, 64, 4, "Lint/LtsRuby/UnavailableMethod: Set#join is unavailable before Ruby 3.0.", 2088000679],
+    [81, 17, 6, "Lint/LtsRuby/UnavailableMethod: String#concat is unavailable before Ruby 2.4.", 1544271377],
+    [82, 17, 4, "Lint/LtsRuby/UnavailableMethod: Set#join is unavailable before Ruby 3.0.", 2088000679],
+    [90, 46, 5, "Lint/LtsRuby/UnavailableMethod: Pathname#write is unavailable before Ruby 2.1.", 190228632],
+    [109, 20, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
+    [136, 55, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [138, 30, 4, "Lint/LtsRuby/UnavailableMethod: StringScanner#size is unavailable before Ruby 2.5.", 2088346912],
+    [141, 40, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
+    [141, 70, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [148, 59, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [148, 70, 6, "Lint/LtsRuby/UnavailableMethod: Pathname#empty? is unavailable before Ruby 2.4.", 1165546895],
+    [150, 45, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [159, 51, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [159, 58, 4, "Lint/LtsRuby/UnavailableMethod: Enumerable/Enumerator::Lazy#uniq is unavailable before Ruby 2.4.", 2087995782]
+  ],
+  "rakelib/gem_floors.rake:4160856360": [
+    [15, 53, 5, "Lint/LtsRuby/UnavailableMethod: Pathname#write is unavailable before Ruby 2.1.", 190228632]
+  ],
+  "spec/kettle/rb/gem_floors/generator_spec.rb:2170044130": [
+    [13, 53, 5, "Lint/LtsRuby/UnavailableMethod: Thread#fetch is unavailable before Ruby 2.5.", 171106201],
+    [14, 57, 5, "Lint/LtsRuby/UnavailableMethod: Thread#fetch is unavailable before Ruby 2.5.", 171106201],
+    [94, 13, 10, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 196585591],
+    [113, 24, 5, "Lint/LtsRuby/UnavailableMethod: Pathname#write is unavailable before Ruby 2.1.", 190228632]
+  ],
+  "spec/kettle/rb/gem_floors_spec.rb:3782977466": [
+    [21, 45, 5, "Lint/LtsRuby/UnavailableMethod: Time#floor is unavailable before Ruby 2.7.", 171329149],
+    [22, 45, 5, "Lint/LtsRuby/UnavailableMethod: Time#floor is unavailable before Ruby 2.7.", 171329149],
+    [23, 45, 5, "Lint/LtsRuby/UnavailableMethod: Time#floor is unavailable before Ruby 2.7.", 171329149],
+    [27, 29, 5, "Lint/LtsRuby/UnavailableMethod: Time#floor is unavailable before Ruby 2.7.", 171329149],
+    [40, 28, 5, "Lint/LtsRuby/UnavailableMethod: Time#floor is unavailable before Ruby 2.7.", 171329149]
+  ],
   "spec/kettle/rb_spec.rb:2520653362": [
     [82, 49, 4, "Lint/LtsRuby/UnavailableMethod: Set#join is unavailable before Ruby 3.0.", 2088000679],
     [84, 56, 4, "Lint/LtsRuby/UnavailableMethod: Set#join is unavailable before Ruby 3.0.", 2088000679]

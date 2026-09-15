@@ -20,6 +20,16 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- `Kettle::Rb::GemFloors`: security floors for tracked gems (activemodel,
+  activerecord, activesupport, sqlite3), one entry per minor series. Each floor
+  is the newest patch that keeps the series' original minimum Ruby, never below
+  an advisory's patched version; advisories left unfixed in a series are
+  recorded as unpatched.
+- `rake kettle:rb:gem_floors:generate` regenerates the floor data from the
+  rubygems.org versions API and ruby-advisory-db (via bundler-audit).
+- `Kettle::Rb::GemDependencies`: curated runtime requirements between tracked
+  gems, starting with the sqlite3 requirement ActiveRecord declares per series.
+
 ### Changed
 
 ### Deprecated
