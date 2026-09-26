@@ -1,0 +1,20 @@
+{
+  "- code and tests (3)\n- dependencies (1)": [
+    {
+      "file": "CHANGELOG.md",
+      "lines": [
+        36,
+        110
+      ]
+    }
+  ],
+  "exec_cmd: \"kettle-test\"\nrubygems: latest": [
+    {
+      "file": ".github/workflows/current.yml",
+      "lines": [
+        43,
+        49
+      ]
+    }
+  ]
+}
