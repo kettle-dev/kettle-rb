@@ -40,20 +40,20 @@ module Kettle
         # (OS/architecture), and GitHub runner labels (CI hardware). These values
         # select runner labels; they must never reach +bundle lock --add-platform+
         # or a Gemfile +platforms:+ DSL untranslated.
-        OS_FAMILIES = %w[linux macos windows].freeze
+        OS_FAMILIES = ["linux", "macos", "windows"].freeze
 
         # Documentation-sourced runner claims:
         # [os_family, runner_label, architecture, note, citation]
         RUNNER_ROWS = [
           ["linux", "ubuntu-latest", "x86_64",
-           "ARM64 lanes available via ubuntu-22.04-arm / ubuntu-24.04-arm / ubuntu-26.04-arm, free for public repos",
-           "https://github.blog/changelog/2025-08-07-arm64-hosted-runners-for-public-repositories-are-now-generally-available/"],
+            "ARM64 lanes available via ubuntu-22.04-arm / ubuntu-24.04-arm / ubuntu-26.04-arm, free for public repos",
+            "https://github.blog/changelog/2025-08-07-arm64-hosted-runners-for-public-repositories-are-now-generally-available/"],
           ["macos", "macos-latest", "arm64",
-           "Floating label; became ARM64 during the Apr-May 2024 macOS 14 migration and resolves to macOS 26 ARM64 since 2026-07-15",
-           "https://github.com/actions/runner-images/issues/14167"],
+            "Floating label; became ARM64 during the Apr-May 2024 macOS 14 migration and resolves to macOS 26 ARM64 since 2026-07-15",
+            "https://github.com/actions/runner-images/issues/14167"],
           ["windows", "windows-latest", "x64",
-           "x64 only (Server 2025); ARM64 Windows requires the explicit windows-11-arm label",
-           "https://github.blog/changelog/2025-08-07-arm64-hosted-runners-for-public-repositories-are-now-generally-available/"]
+            "x64 only (Server 2025); ARM64 Windows requires the explicit windows-11-arm label",
+            "https://github.blog/changelog/2025-08-07-arm64-hosted-runners-for-public-repositories-are-now-generally-available/"]
         ].freeze
 
         # Documentation-sourced engine support claims:
@@ -62,29 +62,29 @@ module Kettle
         # the releases scan, not curated.
         ENGINE_OS_ROWS = [
           ["ruby", "linux", "supported",
-           "All versioned MRI workflows run on Linux; aarch64-linux prebuilts ship in the ruby-builder toolcache from 2.3.5",
-           "https://github.com/ruby/ruby-builder/releases/tag/toolcache"],
+            "All versioned MRI workflows run on Linux; aarch64-linux prebuilts ship in the ruby-builder toolcache from 2.3.5",
+            "https://github.com/ruby/ruby-builder/releases/tag/toolcache"],
           ["ruby", "macos", "supported",
-           "macos-latest is ARM64; community prebuilts from 2.6.7 and native arm64-darwin configure.ac support from 2.7.2",
-           "https://github.com/ruby/ruby/commit/23655e6de5ee989feb8c65c7061fe9a71579dc54"],
+            "macos-latest is ARM64; community prebuilts from 2.6.7 and native arm64-darwin configure.ac support from 2.7.2",
+            "https://github.com/ruby/ruby/commit/23655e6de5ee989feb8c65c7061fe9a71579dc54"],
           ["ruby", "windows", "supported",
-           "RubyInstaller x64 since 2.0.0; ARM64 builds recorded in RUBYINSTALLER_ARM64_SERIES (from 3.4); supported series in RUBYINSTALLER_SERIES",
-           "https://github.com/ruby/setup-ruby/blob/master/windows-versions.json"],
+            "RubyInstaller x64 since 2.0.0; ARM64 builds recorded in RUBYINSTALLER_ARM64_SERIES (from 3.4); supported series in RUBYINSTALLER_SERIES",
+            "https://github.com/ruby/setup-ruby/blob/master/windows-versions.json"],
           ["jruby", "linux", "supported",
-           "Official, including aarch64-Linux jffi from 9.1",
-           "https://www.jruby.org/2021-09-22/jruby-9-3-0-0.html"],
+            "Official, including aarch64-Linux jffi from 9.1",
+            "https://www.jruby.org/2021-09-22/jruby-9-3-0-0.html"],
           ["jruby", "macos", "supported",
-           "Official from 9.3; arm64 jffi slice binary-verified from 9.2.18.0; requires an aarch64 JDK (Temurin 11+ or Zulu 8)",
-           "https://github.com/jruby/jruby/releases/tag/9.2.18.0"],
+            "Official from 9.3; arm64 jffi slice binary-verified from 9.2.18.0; requires an aarch64 JDK (Temurin 11+ or Zulu 8)",
+            "https://github.com/jruby/jruby/releases/tag/9.2.18.0"],
           ["jruby", "windows", "supported",
-           "Official; CRuby C extensions cannot be built or used, so gems must be pure-Ruby or ship Java extensions",
-           "https://www.jruby.org/2021-09-22/jruby-9-3-0-0.html"],
+            "Official; CRuby C extensions cannot be built or used, so gems must be pure-Ruby or ship Java extensions",
+            "https://www.jruby.org/2021-09-22/jruby-9-3-0-0.html"],
           ["truffleruby", "linux", "supported",
-           "Official; linux-aarch64 since 21.2",
-           "https://github.com/truffleruby/truffleruby/releases"],
+            "Official; linux-aarch64 since 21.2",
+            "https://github.com/truffleruby/truffleruby/releases"],
           ["truffleruby", "macos", "supported",
-           "darwin-aarch64 since 22.2.0; macOS Intel removed in 34.0, so macos-*-intel lanes must exclude TruffleRuby 34+",
-           "https://github.com/truffleruby/truffleruby/releases/tag/graal-34.0.0"]
+            "darwin-aarch64 since 22.2.0; macOS Intel removed in 34.0, so macos-*-intel lanes must exclude TruffleRuby 34+",
+            "https://github.com/truffleruby/truffleruby/releases/tag/graal-34.0.0"]
         ].freeze
 
         # @return [String] generation date recorded in the data file
@@ -207,12 +207,12 @@ module Kettle
           count = truffleruby_windows_asset_count
           if count.zero?
             ["truffleruby", "windows", "unsupported",
-             "Never shipped a Windows build (zero Windows assets across #{scanned} releases scanned #{generated_on}); setup-ruby hard-fails",
-             TRUFFLERUBY_WINDOWS_CITATION]
+              "Never shipped a Windows build (zero Windows assets across #{scanned} releases scanned #{generated_on}); setup-ruby hard-fails",
+              TRUFFLERUBY_WINDOWS_CITATION]
           else
             ["truffleruby", "windows", "supported",
-             "#{count} Windows assets across #{scanned} releases scanned #{generated_on}",
-             TRUFFLERUBY_WINDOWS_CITATION]
+              "#{count} Windows assets across #{scanned} releases scanned #{generated_on}",
+              TRUFFLERUBY_WINDOWS_CITATION]
           end
         end
 

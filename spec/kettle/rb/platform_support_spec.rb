@@ -2,7 +2,7 @@
 
 RSpec.describe Kettle::Rb::PlatformSupport do
   it "names the three CI OS families in matrix order" do
-    expect(described_class::OS_FAMILIES).to eq(%w[linux macos windows])
+    expect(described_class::OS_FAMILIES).to eq(["linux", "macos", "windows"])
     expect(described_class.os_family?("macos")).to be(true)
     expect(described_class.os_family?(:windows)).to be(true)
     expect(described_class.os_family?("x86_64-linux")).to be(false)
@@ -22,7 +22,7 @@ RSpec.describe Kettle::Rb::PlatformSupport do
   end
 
   it "supports every engine on linux and macos, and only MRI and JRuby on windows" do
-    %w[ruby jruby truffleruby].each do |engine|
+    ["ruby", "jruby", "truffleruby"].each do |engine|
       expect(described_class.engine_supports_os?(engine, "linux")).to be(true), "expected #{engine}/linux"
       expect(described_class.engine_supports_os?(engine, "macos")).to be(true), "expected #{engine}/macos"
     end
