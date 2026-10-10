@@ -3,6 +3,7 @@
 require_relative "rb/compat_matrix"
 require_relative "rb/gem_floors"
 require_relative "rb/gem_dependencies"
+require_relative "rb/platform_support"
 require_relative "rb/version"
 
 module Kettle
