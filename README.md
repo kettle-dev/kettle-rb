@@ -21,7 +21,7 @@ I've summarized my thoughts in [this blog post](https://dev.to/galtzo/hostile-ta
 
 ## 🌻 Synopsis <a href="https://discord.gg/3qme4XHNKN"><img alt="Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-128px.svg" width="8%" align="right"/></a> <a href="https://ruby-toolbox.com"><img alt="ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5" src="https://logos.galtzo.com/assets/images/ruby-lang/avatar-128px.svg" width="8%" align="right"/></a>
 
-`kettle-dev` is the small shared Ruby library for the kettle-dev toolchain.
+`kettle-rb` is the small shared Ruby library for the kettle-dev toolchain.
 
 Its first public responsibility is `Kettle::Rb::CompatMatrix`: a single source
 of truth for Ruby engine compatibility data used by `kettle-jem`,
@@ -29,12 +29,27 @@ of truth for Ruby engine compatibility data used by `kettle-jem`,
 JRuby, and TruffleRuby versions, workflow Ruby buckets, RubyGems/Bundler
 policy, Rails appraisal hints, and RuboCop LTS selection data.
 
+Its second public responsibility is `Kettle::Rb::PlatformSupport`: the
+evidenced source of truth for OS-platform support claims. It names CI OS
+families (`linux`, `macos`, `windows` — a fourth platform vocabulary, distinct
+from Gemfile DSL platform symbols, `Gem::Platform` strings, and GitHub runner
+labels), maps each family to a runner label, and records per-engine OS
+support where every claim carries a citation. Data is regenerated from the
+GitHub releases API and `ruby/setup-ruby` with
+`rake kettle:rb:platform_support:generate`; unknown engine/OS pairs resolve
+as unsupported so a missing claim can never invent CI coverage. These values
+select runner labels only — they must never be passed to
+`bundle lock --add-platform` or a Gemfile `platforms:` DSL without
+translation.
+
 Use it when tooling needs to answer questions like:
 
 - Which Ruby workflow should represent this engine?
 - Which RuboCop LTS family matches a minimum supported Ruby?
 - Which `rubocop-rubyN_N` gem and rubocop-lts branch belong together?
 - Which Rails appraisal version is the newest stable target for a Ruby bucket?
+- Which GitHub runner label does a CI OS family select, and which engines
+  are supported on that OS?
 
 ## 💡 Info you can shake a stick at
 
@@ -188,6 +203,52 @@ Kettle::Rb::CompatMatrix.rubocop_template_tokens(Gem::Version.new("3.2"))
 
 Kettle::Rb::CompatMatrix.rubocop_lts_branch_for_gem("rubocop-ruby3_2")
 # => "r3_2-even-v24"
+```
+
+Map a CI OS family to its GitHub runner label:
+
+```ruby
+Kettle::Rb::PlatformSupport.os_family?("macos")
+# => true
+
+Kettle::Rb::PlatformSupport.os_family?("x86_64-linux")
+# => false -- that is a Gem::Platform string, not a CI OS family
+
+Kettle::Rb::PlatformSupport.runner_label("windows")
+# => "windows-latest"
+
+Kettle::Rb::PlatformSupport.runner_label("plan9")
+# => nil
+```
+
+Check engine support per OS family (fail-closed: unknown pairs are
+unsupported, never assumed covered):
+
+```ruby
+Kettle::Rb::PlatformSupport.engine_supports_os?("truffleruby", "windows")
+# => false -- no Windows build has ever shipped (66 releases scanned)
+
+Kettle::Rb::PlatformSupport.engine_supports_os?("jruby", "linux")
+# => true
+
+Kettle::Rb::PlatformSupport.supported_os_families("jruby")
+# => ["linux", "macos", "windows"]
+
+Kettle::Rb::PlatformSupport.supported_engines("linux")
+# => ["ruby", "jruby", "truffleruby"]
+
+entry = Kettle::Rb::PlatformSupport.engine_os_entry("truffleruby", "macos")
+entry.support   # => "supported"
+entry.note      # => "darwin-aarch64 since 22.2.0; macOS Intel removed in 34.0, ..."
+entry.citation  # => "https://github.com/truffleruby/truffleruby/releases/tag/graal-34.0.0"
+```
+
+Every entry carries its evidence. Regenerate the data table from live
+sources (GitHub releases API, `ruby/setup-ruby`) when a platform claim
+changes:
+
+```console
+bundle exec rake kettle:rb:platform_support:generate
 ```
 
 ## 🦷 FLOSS Funding
