@@ -83,13 +83,26 @@
 <h2 id="-synopsis--">🌻 Synopsis <a href="https://discord.gg/3qme4XHNKN"><img alt="Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-128px.svg" width="8%" align="right"></a> <a href="https://ruby-toolbox.com"><img alt="ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5" src="https://logos.galtzo.com/assets/images/ruby-lang/avatar-128px.svg" width="8%" align="right"></a>
 </h2>
 
-<p><code>kettle-dev</code> is the small shared Ruby library for the kettle-dev toolchain.</p>
+<p><code>kettle-rb</code> is the small shared Ruby library for the kettle-dev toolchain.</p>
 
 <p>Its first public responsibility is <code>Kettle::Rb::CompatMatrix</code>: a single source<br>
 of truth for Ruby engine compatibility data used by <code>kettle-jem</code>,<br>
 <code>kettle-dev</code>, and related release/template tooling. The matrix records MRI,<br>
 JRuby, and TruffleRuby versions, workflow Ruby buckets, RubyGems/Bundler<br>
 policy, Rails appraisal hints, and RuboCop LTS selection data.</p>
+
+<p>Its second public responsibility is <code>Kettle::Rb::PlatformSupport</code>: the<br>
+evidenced source of truth for OS-platform support claims. It names CI OS<br>
+families (<code>linux</code>, <code>macos</code>, <code>windows</code> — a fourth platform vocabulary, distinct<br>
+from Gemfile DSL platform symbols, <code>Gem::Platform</code> strings, and GitHub runner<br>
+labels), maps each family to a runner label, and records per-engine OS<br>
+support where every claim carries a citation. Data is regenerated from the<br>
+GitHub releases API and <code>ruby/setup-ruby</code> with<br>
+<code>rake kettle:rb:platform_support:generate</code>; unknown engine/OS pairs resolve<br>
+as unsupported so a missing claim can never invent CI coverage. These values<br>
+select runner labels only — they must never be passed to<br>
+<code>bundle lock --add-platform</code> or a Gemfile <code>platforms:</code> DSL without<br>
+translation.</p>
 
 <p>Use it when tooling needs to answer questions like:</p>
 
@@ -98,6 +111,8 @@ policy, Rails appraisal hints, and RuboCop LTS selection data.</p>
   <li>Which RuboCop LTS family matches a minimum supported Ruby?</li>
   <li>Which <code>rubocop-rubyN_N</code> gem and rubocop-lts branch belong together?</li>
   <li>Which Rails appraisal version is the newest stable target for a Ruby bucket?</li>
+  <li>Which GitHub runner label does a CI OS family select, and which engines<br>
+are supported on that OS?</li>
 </ul>
 
 <h2 id="-info-you-can-shake-a-stick-at">💡 Info you can shake a stick at</h2>
@@ -121,7 +136,7 @@ policy, Rails appraisal hints, and RuboCop LTS selection data.</p>
     <tr>
       <td>Works with Truffle Ruby</td>
       <td>
-<a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffleruby-22.3.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-22.3-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 22.3 Compat"></a> <a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffleruby-23.0.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-23.0-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 23.0 Compat"></a> <a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffleruby-23.1.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-23.1-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 23.1 Compat"></a> <br> <a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffleruby-24.2.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-24.2-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 24.2 Compat"></a> <a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffleruby-25.0.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-25.0-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 25.0 Compat"></a> <a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffleruby-33.0.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-33.0-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 33.0 Compat"></a> <a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffle.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-current-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=green" alt="Truffle Ruby current Compat"></a> <a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/heads.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-HEAD-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=blue" alt="Truffle Ruby HEAD Compat"></a>
+<a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffleruby-22.3.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-22.3-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 22.3 Compat"></a> <a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffleruby-23.1.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-23.1-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 23.1 Compat"></a> <br> <a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffleruby-24.2.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-24.2-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 24.2 Compat"></a> <a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffleruby-25.0.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-25.0-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 25.0 Compat"></a> <a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffleruby-33.0.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-33.0-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 33.0 Compat"></a> <a href="https://github.com/kettle-dev/kettle-rb/actions/workflows/truffle.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-current-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=green" alt="Truffle Ruby current Compat"></a>
 </td>
     </tr>
     <tr>
@@ -272,6 +287,68 @@ not practical for the current toolchain.</p>
 
 </details>
 
+<h3 id="runtime-and-platform-support">Runtime and Platform Support</h3>
+
+<p>Support tiers describe what this project’s CI actually exercises, not what may<br>
+work in an untested environment:</p>
+
+<ul>
+  <li>
+<strong>Parallel support</strong>: CI runs the test suite with multiple workers available.</li>
+  <li>
+<strong>Unsupported</strong>: the engine/platform combination is not covered by CI and is<br>
+ not a project compatibility claim.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ruby engine/version</th>
+      <th>Linux</th>
+      <th>macOS</th>
+      <th>Windows</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MRI 3.1-3.4</td>
+      <td>Parallel support</td>
+      <td>Unsupported</td>
+      <td>Unsupported</td>
+      <td>Versioned Ruby workflows run on Linux.</td>
+    </tr>
+    <tr>
+      <td>MRI current</td>
+      <td>Parallel support</td>
+      <td>Parallel support</td>
+      <td>Unsupported</td>
+      <td>Current Ruby workflow covers the declared OS platforms.</td>
+    </tr>
+    <tr>
+      <td>MRI head</td>
+      <td>Parallel support</td>
+      <td>Unsupported</td>
+      <td>Unsupported</td>
+      <td>CI is allowed to fail while Ruby is in development.</td>
+    </tr>
+    <tr>
+      <td>JRuby (all CI lanes)</td>
+      <td>Parallel support</td>
+      <td>Unsupported</td>
+      <td>Unsupported</td>
+      <td>Engine workflows run on Linux; macOS and Windows are not exercised by CI.</td>
+    </tr>
+    <tr>
+      <td>TruffleRuby (all CI lanes)</td>
+      <td>Parallel support</td>
+      <td>Unsupported</td>
+      <td>Unsupported</td>
+      <td>Never shipped a Windows build (zero Windows assets across 66 releases scanned 2026-10-10); setup-ruby hard-fails (<a href="https://github.com/ruby/setup-ruby/blob/master/README.md">source</a>)</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="federated-dvcs">Federated DVCS</h3>
 
 <details>
@@ -412,6 +489,49 @@ Kettle::Rb::CompatMatrix.workflow_ruby_floor(&quot;truffleruby-23.1&quot;)
 
 Kettle::Rb::CompatMatrix.rubocop_lts_branch_for_gem(&quot;rubocop-ruby3_2&quot;)
 # =&gt; &quot;r3_2-even-v24&quot;
+</code></pre>
+
+<p>Map a CI OS family to its GitHub runner label:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">Kettle::Rb::PlatformSupport.os_family?(&quot;macos&quot;)
+# =&gt; true
+
+Kettle::Rb::PlatformSupport.os_family?(&quot;x86_64-linux&quot;)
+# =&gt; false -- that is a Gem::Platform string, not a CI OS family
+
+Kettle::Rb::PlatformSupport.runner_label(&quot;windows&quot;)
+# =&gt; &quot;windows-latest&quot;
+
+Kettle::Rb::PlatformSupport.runner_label(&quot;plan9&quot;)
+# =&gt; nil
+</code></pre>
+
+<p>Check engine support per OS family (fail-closed: unknown pairs are<br>
+unsupported, never assumed covered):</p>
+
+<pre class="code language-ruby"><code class="language-ruby">Kettle::Rb::PlatformSupport.engine_supports_os?(&quot;truffleruby&quot;, &quot;windows&quot;)
+# =&gt; false -- no Windows build has ever shipped (66 releases scanned)
+
+Kettle::Rb::PlatformSupport.engine_supports_os?(&quot;jruby&quot;, &quot;linux&quot;)
+# =&gt; true
+
+Kettle::Rb::PlatformSupport.supported_os_families(&quot;jruby&quot;)
+# =&gt; [&quot;linux&quot;, &quot;macos&quot;, &quot;windows&quot;]
+
+Kettle::Rb::PlatformSupport.supported_engines(&quot;linux&quot;)
+# =&gt; [&quot;ruby&quot;, &quot;jruby&quot;, &quot;truffleruby&quot;]
+
+entry = Kettle::Rb::PlatformSupport.engine_os_entry(&quot;truffleruby&quot;, &quot;macos&quot;)
+entry.support   # =&gt; &quot;supported&quot;
+entry.note      # =&gt; &quot;darwin-aarch64 since 22.2.0; macOS Intel removed in 34.0, ...&quot;
+entry.citation  # =&gt; &quot;https://github.com/truffleruby/truffleruby/releases/tag/graal-34.0.0&quot;
+</code></pre>
+
+<p>Every entry carries its evidence. Regenerate the data table from live<br>
+sources (GitHub releases API, <code>ruby/setup-ruby</code>) when a platform claim<br>
+changes:</p>
+
+<pre class="code language-console"><code class="language-console">bundle exec rake kettle:rb:platform_support:generate
 </code></pre>
 
 <h2 id="-floss-funding">🦷 FLOSS Funding</h2>
