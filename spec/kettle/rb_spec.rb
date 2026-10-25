@@ -18,6 +18,39 @@ RSpec.describe Kettle::Rb do
     expect(matrix.engine_workflow("truffle")).to eq("truffleruby")
   end
 
+  it "derives Ruby bucket ranges from the complete bucket set" do
+    buckets = %w[r2 r2.4 r2.6 r3 r3.1 r3.3 r4]
+    ranges = Kettle::Rb::RubySeriesBuckets.ranges_for_buckets(buckets)
+
+    expect(ranges).to include(
+      "r2.4" => {floor: Gem::Version.new("2.3"), ceiling: Gem::Version.new("2.4")},
+      "r2.6" => {floor: Gem::Version.new("2.5"), ceiling: Gem::Version.new("2.6")},
+      "r2" => {floor: Gem::Version.new("2.7"), ceiling: Gem::Version.new("2.99")},
+      "r3.1" => {floor: Gem::Version.new("3.0"), ceiling: Gem::Version.new("3.1")},
+      "r3.3" => {floor: Gem::Version.new("3.2"), ceiling: Gem::Version.new("3.3")},
+      "r3" => {floor: Gem::Version.new("3.4"), ceiling: Gem::Version.new("3.99")},
+      "r4" => {floor: Gem::Version.new("4.0"), ceiling: Gem::Version.new("4.99")}
+    )
+  end
+
+  it "selects every Ruby bucket that intersects the destination minimum" do
+    buckets = %w[r2 r2.4 r2.6 r3 r3.1 r3.3 r4]
+
+    expect(Kettle::Rb::RubySeriesBuckets.relevant_buckets(buckets, minimum: "2.7")).to eq(%w[r2 r3.1 r3.3 r3 r4])
+    expect(Kettle::Rb::RubySeriesBuckets.relevant_buckets(buckets, minimum: "3.2")).to eq(%w[r3.3 r3 r4])
+    expect(Kettle::Rb::RubySeriesBuckets.relevant_buckets(buckets, minimum: "5.0")).to be_empty
+  end
+
+  it "builds the same buckets and ranges from seam versions" do
+    result = Kettle::Rb::RubySeriesBuckets.from_minor_versions(%w[2.4 2.6 2.7 3.0 3.2])
+
+    expect(result.fetch(:buckets)).to eq(%w[r2.4 r2.6 r2 r3.1 r3])
+    expect(result.fetch(:bucket_ranges).fetch("r2.4")).to eq(
+      floor: Gem::Version.new("2.4"),
+      ceiling: Gem::Version.new("2.5")
+    )
+  end
+
   it "selects RuboCop LTS data from the matrix" do
     matrix = Kettle::Rb::CompatMatrix
 

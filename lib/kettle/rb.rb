@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "rb/compat_matrix"
+require_relative "rb/ruby_series_buckets"
 require_relative "rb/gem_floors"
 require_relative "rb/gem_dependencies"
 require_relative "rb/platform_support"

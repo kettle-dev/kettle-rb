@@ -20,6 +20,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Shared Ruby series bucket range calculation for compatibility matrices and template curation.
+
 ### Changed
 
 ### Deprecated

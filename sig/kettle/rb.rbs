@@ -5,5 +5,11 @@ module Kettle
       VERSION: String
     end
     VERSION: String
+
+    module RubySeriesBuckets
+      def self.from_minor_versions: (Array[String | Gem::Version]) -> { buckets: Array[String], bucket_ranges: Hash[String, { floor: Gem::Version, ceiling: Gem::Version }] }
+      def self.ranges_for_buckets: (Array[String]) -> Hash[String, { floor: Gem::Version, ceiling: Gem::Version }]
+      def self.relevant_buckets: (Array[String], minimum: String | Gem::Version) -> Array[String]
+    end
   end
 end
