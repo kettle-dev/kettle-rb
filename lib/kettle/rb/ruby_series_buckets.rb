@@ -60,10 +60,10 @@ module Kettle
       # @param buckets [Array<String>] folder names such as r2.4, r2.6, r2
       # @return [Hash{String => Hash}] ranges keyed by bucket name
       def ranges_for_buckets(buckets)
-        parsed = Array(buckets).filter_map do |bucket|
+        parsed = Array(buckets).map { |bucket|
           match = bucket.to_s.match(/\Ar(\d+)(?:\.(\d+))?\z/)
           [match[1].to_i, match[2] && match[2].to_i, bucket.to_s] if match
-        end
+        }.compact
         parsed.group_by(&:first).each_with_object({}) do |(major, entries), result|
           named = entries.select { |_major, minor, _bucket| minor }.sort_by { |_major, minor, _bucket| minor }
           seams = [minimum_ruby_for_major(major)]
@@ -84,15 +84,16 @@ module Kettle
       def relevant_buckets(buckets, minimum:)
         floor = Gem::Version.new(minimum.to_s)
         ranges = ranges_for_buckets(buckets)
-        ranges.filter_map { |bucket, range| bucket if range.fetch(:ceiling) >= floor }
+        ranges.map { |bucket, range| bucket if range.fetch(:ceiling) >= floor }
+          .compact
           .sort_by { |bucket| bucket_sort_key(bucket) }
       end
 
       def minimum_ruby_for_major(major)
-        versions = CompatMatrix.entries.filter_map do |key, entry|
+        versions = CompatMatrix.entries.map { |key, _entry|
           match = key.match(/\Aruby-(\d+)\.(\d+)\z/)
           Gem::Version.new("#{match[1]}.#{match[2]}") if match && match[1].to_i == major
-        end
+        }.compact
         versions.min || Gem::Version.new("#{major}.0")
       end
       private_class_method :minimum_ruby_for_major
