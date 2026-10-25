@@ -34,18 +34,6 @@ template_state:
     - gemfiles/modular/webrick/vHEAD.gemfile
     - kettle-rb.gemspec
     kettle-jem/template:
-    - ".github/workflows/dep-heads.yml"
-    - ".github/workflows/truffle.yml"
-    - ".github/workflows/truffleruby-22.3.yml"
-    - ".github/workflows/truffleruby-23.1.yml"
-    - ".github/workflows/truffleruby-24.2.yml"
-    - ".github/workflows/truffleruby-25.0.yml"
-    - ".github/workflows/truffleruby-33.0.yml"
-    - ".simplecov"
-    - README.md
-    - Rakefile
-    - gemfiles/modular/coverage_local.gemfile
-    - gemfiles/modular/templating_local.gemfile
     - spec/kettle/rb/version_spec.rb
   checksums:
     ".aiignore.example": 48a5dfdd93afd1a15fdce39cc28ca9920263f00018b0968ab031fa744521e5ce
@@ -705,7 +693,7 @@ files:
   CHANGELOG.md:
     recipe: template_source_application_CHANGELOG_md
     action: write
-    dest_sha256: f3059872db8411985356fc3ec7c367ab403071a091af76b34970688f739d4d20
+    dest_sha256: 67de1cd9cbc332e8686c790be7cdb6c1389ca73896b2f062cb2b2aeb0521bd46
     input_fingerprint: 98012fd7d4e05da203c38b02358c894a89c59201a908a4450f9c118ee994bfcf
     template_sources:
     - CHANGELOG.md.example
@@ -768,7 +756,7 @@ files:
   README.md:
     recipe: template_source_application_README_md
     action: write
-    dest_sha256: 48be524c092ea6ac69d63a075b0930dec7907714002f9f6ad0a4c643efcc7b0c
+    dest_sha256: b0db512d532f930a68334826482007910ebbec6f98e1da56c8de96f057f29fd8
     input_fingerprint: 0e8ff1043992fd91a99d2ba3753fdc04afbea710110a04cc665c51a2ef2324db
     template_sources:
     - README.md.example
