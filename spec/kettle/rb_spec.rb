@@ -23,7 +23,7 @@ RSpec.describe Kettle::Rb do
     ranges = Kettle::Rb::RubySeriesBuckets.ranges_for_buckets(buckets)
 
     expect(ranges).to include(
-      "r2.4" => {:floor => Gem::Version.new("2.3"), :ceiling => Gem::Version.new("2.4")},
+      "r2.4" => {:floor => Gem::Version.new("2.0"), :ceiling => Gem::Version.new("2.4")},
       "r2.6" => {:floor => Gem::Version.new("2.5"), :ceiling => Gem::Version.new("2.6")},
       "r2" => {:floor => Gem::Version.new("2.7"), :ceiling => Gem::Version.new("2.99")},
       "r3.1" => {:floor => Gem::Version.new("3.0"), :ceiling => Gem::Version.new("3.1")},
@@ -42,12 +42,12 @@ RSpec.describe Kettle::Rb do
   end
 
   it "builds the same buckets and ranges from seam versions" do
-    result = Kettle::Rb::RubySeriesBuckets.from_minor_versions(["2.4", "2.6", "2.7", "3.0", "3.2"])
+    result = Kettle::Rb::RubySeriesBuckets.from_minor_versions(["2.4", "2.5", "2.7", "3.0", "3.2"])
 
     expect(result.fetch(:buckets)).to eq(["r2.4", "r2.6", "r2", "r3.1", "r3"])
     expect(result.fetch(:bucket_ranges).fetch("r2.4")).to eq(
       :floor => Gem::Version.new("2.4"),
-      :ceiling => Gem::Version.new("2.5")
+      :ceiling => Gem::Version.new("2.4")
     )
   end
 
