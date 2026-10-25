@@ -35,7 +35,7 @@ module Kettle
             if index == sorted.length - 1
               bucket = "r#{major}"
               buckets << bucket
-              ranges[bucket] = {floor: version, ceiling: Gem::Version.new("#{major}.99")}
+              ranges[bucket] = {:floor => version, :ceiling => Gem::Version.new("#{major}.99")}
               next
             end
 
@@ -44,13 +44,13 @@ module Kettle
             bucket = "r#{major}.#{upper}"
             buckets << bucket
             ranges[bucket] = {
-              floor: version,
-              ceiling: Gem::Version.new("#{major}.#{upper}")
+              :floor => version,
+              :ceiling => Gem::Version.new("#{major}.#{upper}")
             }
           end
         end
 
-        {buckets: buckets.uniq, bucket_ranges: ranges}
+        {:buckets => buckets.uniq, :bucket_ranges => ranges}
       end
 
       # Reconstructs the canonical ranges from the complete set of bucket
@@ -80,9 +80,11 @@ module Kettle
       end
 
       # Keeps every bucket whose Ruby range intersects the destination's
-      # supported Ruby versions (all versions at or above +minimum+).
-      def relevant_buckets(buckets, minimum:)
-        floor = Gem::Version.new(minimum.to_s)
+      # supported Ruby versions (all versions at or above +:minimum+).
+      # Takes an options hash rather than a required keyword so the file parses
+      # on every Ruby the gem supports.
+      def relevant_buckets(buckets, options = {})
+        floor = Gem::Version.new(options.fetch(:minimum).to_s)
         ranges = ranges_for_buckets(buckets)
         ranges.map { |bucket, range| bucket if range.fetch(:ceiling) >= floor }
           .compact
