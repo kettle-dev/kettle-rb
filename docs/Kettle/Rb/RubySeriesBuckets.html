@@ -163,7 +163,7 @@ ending at M.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#relevant_buckets-class_method" title="relevant_buckets (class method)">.<strong>relevant_buckets</strong>(buckets, minimum:)  &#x21d2; Object </a>
+      <a href="#relevant_buckets-class_method" title="relevant_buckets (class method)">.<strong>relevant_buckets</strong>(buckets, options = {})  &#x21d2; Object </a>
     
 
     
@@ -177,7 +177,7 @@ ending at M.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Keeps every bucket whose Ruby range intersects the destination’s supported Ruby versions (all versions at or above +minimum+).</p>
+    <span class="summary_desc"><div class='inline'><p>Keeps every bucket whose Ruby range intersects the destination’s supported Ruby versions (all versions at or above +:minimum+).</p>
 </div></span>
   
 </li>
@@ -305,7 +305,7 @@ generation and by template curation.</p>
       <span class='kw'>if</span> <span class='id identifier rubyid_index'>index</span> <span class='op'>==</span> <span class='id identifier rubyid_sorted'>sorted</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>-</span> <span class='int'>1</span>
         <span class='id identifier rubyid_bucket'>bucket</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>r</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_major'>major</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
         <span class='id identifier rubyid_buckets'>buckets</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_bucket'>bucket</span>
-        <span class='id identifier rubyid_ranges'>ranges</span><span class='lbracket'>[</span><span class='id identifier rubyid_bucket'>bucket</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='label'>floor:</span> <span class='id identifier rubyid_version'>version</span><span class='comma'>,</span> <span class='label'>ceiling:</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_major'>major</span><span class='embexpr_end'>}</span><span class='tstring_content'>.99</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span>
+        <span class='id identifier rubyid_ranges'>ranges</span><span class='lbracket'>[</span><span class='id identifier rubyid_bucket'>bucket</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='symbol'>:floor</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_version'>version</span><span class='comma'>,</span> <span class='symbol'>:ceiling</span> <span class='op'>=&gt;</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_major'>major</span><span class='embexpr_end'>}</span><span class='tstring_content'>.99</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span>
         <span class='kw'>next</span>
       <span class='kw'>end</span>
 
@@ -314,13 +314,13 @@ generation and by template curation.</p>
       <span class='id identifier rubyid_bucket'>bucket</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>r</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_major'>major</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_upper'>upper</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
       <span class='id identifier rubyid_buckets'>buckets</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_bucket'>bucket</span>
       <span class='id identifier rubyid_ranges'>ranges</span><span class='lbracket'>[</span><span class='id identifier rubyid_bucket'>bucket</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-        <span class='label'>floor:</span> <span class='id identifier rubyid_version'>version</span><span class='comma'>,</span>
-        <span class='label'>ceiling:</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_major'>major</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_upper'>upper</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='symbol'>:floor</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_version'>version</span><span class='comma'>,</span>
+        <span class='symbol'>:ceiling</span> <span class='op'>=&gt;</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_major'>major</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_upper'>upper</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
       <span class='rbrace'>}</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 
-  <span class='lbrace'>{</span><span class='label'>buckets:</span> <span class='id identifier rubyid_buckets'>buckets</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='comma'>,</span> <span class='label'>bucket_ranges:</span> <span class='id identifier rubyid_ranges'>ranges</span><span class='rbrace'>}</span>
+  <span class='lbrace'>{</span><span class='symbol'>:buckets</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_buckets'>buckets</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span><span class='comma'>,</span> <span class='symbol'>:bucket_ranges</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_ranges'>ranges</span><span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -414,10 +414,10 @@ catches the remaining versions in that major.</p>
       <pre class="code"><span class="info file"># File 'lib/kettle/rb/ruby_series_buckets.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ranges_for_buckets'>ranges_for_buckets</span><span class='lparen'>(</span><span class='id identifier rubyid_buckets'>buckets</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_parsed'>parsed</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_buckets'>buckets</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_filter_map'>filter_map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_bucket'>bucket</span><span class='op'>|</span>
+  <span class='id identifier rubyid_parsed'>parsed</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_buckets'>buckets</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_bucket'>bucket</span><span class='op'>|</span>
     <span class='id identifier rubyid_match'>match</span> <span class='op'>=</span> <span class='id identifier rubyid_bucket'>bucket</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\Ar(\d+)(?:\.(\d+))?\z</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
     <span class='lbracket'>[</span><span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='comma'>,</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_match'>match</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='comma'>,</span> <span class='id identifier rubyid_bucket'>bucket</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_match'>match</span>
-  <span class='kw'>end</span>
+  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span>
   <span class='id identifier rubyid_parsed'>parsed</span><span class='period'>.</span><span class='id identifier rubyid_group_by'>group_by</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:first</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='lparen'>(</span><span class='id identifier rubyid_major'>major</span><span class='comma'>,</span> <span class='id identifier rubyid_entries'>entries</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_result'>result</span><span class='op'>|</span>
     <span class='id identifier rubyid_named'>named</span> <span class='op'>=</span> <span class='id identifier rubyid_entries'>entries</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__major'>_major</span><span class='comma'>,</span> <span class='id identifier rubyid_minor'>minor</span><span class='comma'>,</span> <span class='id identifier rubyid__bucket'>_bucket</span><span class='op'>|</span> <span class='id identifier rubyid_minor'>minor</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__major'>_major</span><span class='comma'>,</span> <span class='id identifier rubyid_minor'>minor</span><span class='comma'>,</span> <span class='id identifier rubyid__bucket'>_bucket</span><span class='op'>|</span> <span class='id identifier rubyid_minor'>minor</span> <span class='rbrace'>}</span>
     <span class='id identifier rubyid_seams'>seams</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_minimum_ruby_for_major'>minimum_ruby_for_major</span><span class='lparen'>(</span><span class='id identifier rubyid_major'>major</span><span class='rparen'>)</span><span class='rbracket'>]</span>
@@ -440,7 +440,7 @@ catches the remaining versions in that major.</p>
       <div class="method_details ">
   <h3 class="signature " id="relevant_buckets-class_method">
   
-    .<strong>relevant_buckets</strong>(buckets, minimum:)  &#x21d2; <tt>Object</tt> 
+    .<strong>relevant_buckets</strong>(buckets, options = {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -449,7 +449,9 @@ catches the remaining versions in that major.</p>
 </h3><div class="docstring">
   <div class="discussion">
     <p>Keeps every bucket whose Ruby range intersects the destination’s<br />
-supported Ruby versions (all versions at or above +minimum+).</p>
+supported Ruby versions (all versions at or above +:minimum+).<br />
+Takes an options hash rather than a required keyword so the file parses<br />
+on every Ruby the gem supports.</p>
 
 
   </div>
@@ -463,20 +465,22 @@ supported Ruby versions (all versions at or above +minimum+).</p>
       <pre class="lines">
 
 
-84
-85
 86
 87
 88
-89</pre>
+89
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/rb/ruby_series_buckets.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/rb/ruby_series_buckets.rb', line 86</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_relevant_buckets'>relevant_buckets</span><span class='lparen'>(</span><span class='id identifier rubyid_buckets'>buckets</span><span class='comma'>,</span> <span class='label'>minimum:</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_floor'>floor</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_minimum'>minimum</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_relevant_buckets'>relevant_buckets</span><span class='lparen'>(</span><span class='id identifier rubyid_buckets'>buckets</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_floor'>floor</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:minimum</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ranges'>ranges</span> <span class='op'>=</span> <span class='id identifier rubyid_ranges_for_buckets'>ranges_for_buckets</span><span class='lparen'>(</span><span class='id identifier rubyid_buckets'>buckets</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_ranges'>ranges</span><span class='period'>.</span><span class='id identifier rubyid_filter_map'>filter_map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_bucket'>bucket</span><span class='comma'>,</span> <span class='id identifier rubyid_range'>range</span><span class='op'>|</span> <span class='id identifier rubyid_bucket'>bucket</span> <span class='kw'>if</span> <span class='id identifier rubyid_range'>range</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:ceiling</span><span class='rparen'>)</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_floor'>floor</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_ranges'>ranges</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_bucket'>bucket</span><span class='comma'>,</span> <span class='id identifier rubyid_range'>range</span><span class='op'>|</span> <span class='id identifier rubyid_bucket'>bucket</span> <span class='kw'>if</span> <span class='id identifier rubyid_range'>range</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:ceiling</span><span class='rparen'>)</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_floor'>floor</span> <span class='rbrace'>}</span>
+    <span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span>
     <span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_bucket'>bucket</span><span class='op'>|</span> <span class='id identifier rubyid_bucket_sort_key'>bucket_sort_key</span><span class='lparen'>(</span><span class='id identifier rubyid_bucket'>bucket</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
