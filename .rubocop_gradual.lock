@@ -1,0 +1,7 @@
+{
+  "lib/kettle/rb/ruby_series_buckets.rb:3212651631": [
+    [8, 3, 6, "Lint/Syntax: module definition in method body\n(Using Ruby 2.0 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 1465948607],
+    [13, 5, 6, "Lint/Syntax: module definition in method body\n(Using Ruby 2.0 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 1465948607],
+    [87, 45, 1, "Lint/Syntax: unexpected token tRPAREN\n(Using Ruby 2.0 parser; configure using `TargetRubyVersion` parameter, under `AllCops`)", 177548]
+  ]
+}
