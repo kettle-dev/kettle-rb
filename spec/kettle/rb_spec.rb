@@ -33,6 +33,12 @@ RSpec.describe Kettle::Rb do
     )
   end
 
+  it "ignores unrecognized bucket names and omits unrequested ranges" do
+    ranges = Kettle::Rb::RubySeriesBuckets.ranges_for_buckets(["bogus", "r2.6"])
+
+    expect(ranges.keys).to eq(["r2.6"])
+  end
+
   it "selects every Ruby bucket that intersects the destination minimum" do
     buckets = ["r2", "r2.4", "r2.6", "r3", "r3.1", "r3.3", "r4"]
 

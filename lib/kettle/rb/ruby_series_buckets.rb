@@ -42,8 +42,8 @@ module Kettle
             next_version = sorted[index + 1]
             upper = [next_version.segments[1].to_i - 1, version.segments[1].to_i].max
             bucket = "r#{major}.#{upper}"
-            buckets << bucket unless buckets.include?(bucket)
-            ranges[bucket] ||= {
+            buckets << bucket
+            ranges[bucket] = {
               floor: version,
               ceiling: Gem::Version.new("#{major}.#{upper}")
             }
@@ -66,9 +66,6 @@ module Kettle
         end
         parsed.group_by(&:first).each_with_object({}) do |(major, entries), result|
           named = entries.select { |_major, minor, _bucket| minor }.sort_by { |_major, minor, _bucket| minor }
-          catch_all = entries.find { |_major, minor, _bucket| minor.nil? }
-          next if named.empty? && !catch_all
-
           seams = [minimum_ruby_for_major(major)]
           named.each do |_entry_major, minor, _bucket|
             seams << Gem::Version.new("#{major}.#{minor + 1}")
