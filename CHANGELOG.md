@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.19] - 2026-10-25
+
+- TAG: [v0.1.19][0.1.19t]
+- COVERAGE: 100.00% -- 421/421 lines in 11 files
+- BRANCH COVERAGE: 98.15% -- 53/54 branches in 11 files
+- 63.08% documented
+
+### Added
+
 - Shared Ruby series bucket range calculation for compatibility matrices and template curation.
 
 ### Changed
@@ -33,14 +52,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - documentation (1)
   - other (1)
   - workflows (7)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [0.1.18] - 2026-10-15
 
@@ -394,7 +405,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
   and RuboCop LTS compatibility source of truth for kettle-dev tooling.
 
-[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.18...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.19...HEAD
+[0.1.19]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.18...v0.1.19
+[0.1.19t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.19
 [0.1.18]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.17...v0.1.18
 [0.1.18t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.18
 [0.1.17]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.15...v0.1.17
