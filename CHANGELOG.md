@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.22] - 2026-11-27
+
+- TAG: [v0.1.22][0.1.22t]
+- COVERAGE: 100.00% -- 421/421 lines in 11 files
+- BRANCH COVERAGE: 98.15% -- 53/54 branches in 11 files
+- 63.08% documented
+
+### Changed
+
 - [kc] kettle-jem/prepare: updated 25 project files since the last release:
   - dependencies (25)
 
@@ -30,14 +47,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - dependencies (14)
   - other (4)
   - workflows (8)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [0.1.21] - 2026-10-28
 
@@ -446,7 +455,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Add `Kettle::Rb::CompatMatrix` as the shared Ruby, engine, Rails, RuboCop,
   and RuboCop LTS compatibility source of truth for kettle-dev tooling.
 
-[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.21...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.22...HEAD
+[0.1.22]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.21...v0.1.22
+[0.1.22t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.22
 [0.1.21]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.20...v0.1.21
 [0.1.21t]: https://github.com/kettle-dev/kettle-rb/releases/tag/v0.1.21
 [0.1.20]: https://github.com/kettle-dev/kettle-rb/compare/v0.1.19...v0.1.20
